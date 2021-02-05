@@ -1,0 +1,31 @@
+.label {
+  display: block;
+  margin-top: 10px;
+
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  color: gray;
+}
+
+.input {
+  display: block;
+  margin-top: 5px;
+  padding: 10px;
+
+  width: 100%;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* .input:focus {
+  outline-color: none;
+  background-color: yellowgreen;
+} */
+
+::placeholder {
+  color: var(--violetColor);
+  font-size: 12px;
+}

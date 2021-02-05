@@ -1,0 +1,48 @@
+.form {
+  margin-top: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 20px;
+
+  font-size: 17px;
+  font-weight: 500;
+  color: gray;
+}
+
+.input {
+  display: block;
+  margin-top: 5px;
+  padding: 10px;
+
+  width: 100%;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button {
+  display: block;
+  padding: 10px 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  color: var(--primaryWhiteColor);
+  background-color: var(--darkVioletColor);
+  border-radius: 10px;
+  border: solid 3px var(--primaryWhiteColor);
+  outline: none;
+
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.button:hover {
+  transform: scale(1.06);
+}
