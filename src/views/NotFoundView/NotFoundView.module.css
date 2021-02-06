@@ -1,0 +1,11 @@
+.main {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.title {
+  margin-top: 20px;
+  color: red;
+  font-weight: 500;
+  font-size: 20px;
+}
