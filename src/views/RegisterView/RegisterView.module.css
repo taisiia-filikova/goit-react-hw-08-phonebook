@@ -1,17 +1,26 @@
 .form {
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  padding: 40px 0;
-  text-align: center;
+  margin-top: 20px;
 }
 
-.text {
-  margin-bottom: 20px !important;
+.label {
+  display: block;
+  margin-bottom: 20px;
+
+  font-size: 17px;
+  font-weight: 500;
+  color: gray;
+}
+
+.input {
+  display: block;
+  margin-top: 5px;
+  padding: 10px;
+
   width: 100%;
-  background-color: #fff !important;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .button {

@@ -5,7 +5,6 @@ import {
   authorizationSelectors,
 } from '../../redux/authorization';
 import { toast } from 'react-toastify';
-import TextField from '@material-ui/core/TextField';
 import Loader from '../../components/Loader/Loader';
 import s from './LoginView.module.css';
 
@@ -43,24 +42,27 @@ export default function LoginView() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
-      <TextField
-        label="Email"
-        type="email"
-        name="email"
-        value={email}
-        onChange={handleChange}
-        className={s.text}
-      />
-
-      <TextField
-        label="Password"
-        type="password"
-        name="password"
-        value={password}
-        onChange={handleChange}
-        className={s.text}
-      />
+    <form onSubmit={handleSubmit} className={s.form}>
+      <label className={s.label}>
+        E-mail
+        <input
+          className={s.input}
+          type="email"
+          name="email"
+          onChange={handleChange}
+          placeholder="Enter your e-mail"
+        />
+      </label>
+      <label className={s.label}>
+        Password
+        <input
+          className={s.input}
+          type="password"
+          name="password"
+          onChange={handleChange}
+          placeholder="Enter your password"
+        />
+      </label>
       {!isLoading && (
         <button className={s.button} type="submit">
           Log in
