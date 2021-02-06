@@ -1,0 +1,19 @@
+.link {
+  display: inline-block;
+  padding: 8px 0;
+  font-weight: 700;
+  color: var(--violetColor);
+  font-size: 20px;
+}
+
+.active {
+  display: inline-block;
+  padding: 8px 0;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+}
+
+.link:not(:last-child) {
+  margin-right: 30px;
+}
