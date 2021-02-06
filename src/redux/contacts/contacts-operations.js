@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   fetchContactsRequest,
   fetchContactsSuccess,
@@ -9,15 +10,25 @@ import {
   deleteContactSuccess,
   deleteContactError,
 } from './contacts-actions';
-import * as contactsAPI from '../../utils/contacts-api';
+import { toast } from 'react-toastify';
 
 export const fetchContacts = () => dispatch => {
   dispatch(fetchContactsRequest());
 
-  contactsAPI
-    .fetchContacts()
+  axios
+    .get('/contacts')
     .then(({ data }) => dispatch(fetchContactsSuccess(data)))
-    .catch(error => dispatch(fetchContactsError(error)));
+    .catch(error => {
+      dispatch(fetchContactsError(error));
+
+      if (error.response.status === 404) {
+        toast.info("There is no such user's collection!");
+      } else if (error.response.status === 500) {
+        toast.error('Server error! Please try later.');
+      } else {
+        toast.error('Something went wrong! Please wait and reload the page!');
+      }
+    });
 };
 
 export const addContact = (name, number) => dispatch => {
@@ -28,17 +39,35 @@ export const addContact = (name, number) => dispatch => {
 
   dispatch(addContactRequest());
 
-  contactsAPI
-    .addContact(contact)
+  axios
+    .post('/contacts', contact)
     .then(({ data }) => dispatch(addContactSuccess(data)))
-    .catch(error => dispatch(addContactError(error)));
+    .catch(error => {
+      dispatch(addContactError(error));
+
+      if (error.response.status === 400) {
+        toast.error('Contact creation error!');
+      } else {
+        toast.error('Something went wrong! Please wait and reload the page!');
+      }
+    });
 };
 
-export const deleteContact = id => dispatch => {
+export const deleteContact = contactId => dispatch => {
   dispatch(deleteContactRequest());
 
-  contactsAPI
-    .deleteContact(id)
-    .then(() => dispatch(deleteContactSuccess(id)))
-    .catch(error => dispatch(deleteContactError(error)));
+  axios
+    .delete(`/contacts/${contactId}`)
+    .then(() => dispatch(deleteContactSuccess(contactId)))
+    .catch(error => {
+      dispatch(deleteContactError(error));
+
+      if (error.response.status === 404) {
+        toast.info("There is no such user's collection!");
+      } else if (error.response.status === 500) {
+        toast.error('Server error! Please try later.');
+      } else {
+        toast.error('Something went wrong! Please wait and reload the page!');
+      }
+    });
 };

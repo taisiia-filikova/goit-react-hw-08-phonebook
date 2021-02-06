@@ -35,10 +35,12 @@ const filter = createReducer('', {
   [filterContact]: (_, { payload }) => payload,
 });
 
+const setError = (_, { payload }) => payload;
+
 const error = createReducer(null, {
-  [fetchContactsError]: (_, { payload }) => payload,
-  [addContactError]: (_, { payload }) => payload,
-  [deleteContactError]: (_, { payload }) => payload,
+  [fetchContactsError]: setError,
+  [addContactError]: setError,
+  [deleteContactError]: setError,
   [fetchContactsRequest]: () => null,
   [addContactRequest]: () => null,
   [deleteContactRequest]: () => null,
