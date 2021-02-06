@@ -28,6 +28,7 @@
   padding: 10px 15px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 
   color: var(--primaryWhiteColor);
   background-color: var(--darkVioletColor);
